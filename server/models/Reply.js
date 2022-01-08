@@ -1,10 +1,9 @@
 const { Schema, model } = require("mongoose");
-const replySchema = require("./Reply");
 const dateFormat = require("../utils/dateFormat");
 
-const postSchema = new Schema(
+const replySchema = new Schema(
   {
-    postText: {
+    replyText: {
       type: String,
       required: "This field cannot be blank!",
       minlength: 1,
@@ -19,9 +18,6 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
-    replies: [replySchema],
-    tags: [],
-    categories: [],
   },
   {
     toJSON: {
@@ -30,6 +26,6 @@ const postSchema = new Schema(
   }
 );
 
-const Post = model("Post", postSchema);
+const Reply = model("Reply", replySchema);
 
-module.exports = Post;
+module.exports = Reply;
