@@ -1,7 +1,7 @@
 import React from "react";
 
-const PostForm = () => {
+const PetDetail = () => {
   return <div></div>;
 };
 
-export default PostForm;
+export default PetDetail;
