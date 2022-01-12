@@ -39,14 +39,15 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    posts(username: String!): [Post]
+    posts(username: String): [Post]
+    postTrending(username: String): [Post]
     post(_id: ID!): Post
     pets: [Pet]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPost(postText: String!): Post
+    addPost(postText: String!, categories: String, tags: [String]): Post
     addPet(
       name: String!
       age: Int!
@@ -54,8 +55,9 @@ const typeDefs = gql`
       breed: String!
       img: String!
     ): Pet
-    addReply(postId: ID!, postText: String!): Post
+    addReply(postId: ID!, replyText: String!): Post
     addFriend(friendId: ID!): User
+    removePost(postId: ID!): User
   }
   type Auth {
     token: ID!

@@ -18,10 +18,15 @@ const resolvers = {
     },
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Post.find(params);
+      return Post.find(params).sort({ createdAt: -1 });
     },
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
+    },
+    postTrending: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      console.log;
+      return Post.find(params);
     },
     users: async () => {
       return User.find()
@@ -92,11 +97,13 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    addReply: async (parent, { postId, postText }, context) => {
+    addReply: async (parent, { postId, replyText }, context) => {
       if (context.user) {
         const updatedPost = await Post.findOneAndUpdate(
           { _id: postId },
-          { $push: { posts: { postBody, username: context.user.username } } },
+          {
+            $push: { replies: { replyText, username: context.user.username } },
+          },
           { new: true, runValidators: true }
         );
         return updatedPost;
@@ -114,6 +121,15 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndDelete(
+          { _id: postId },
+          { new: true }
+        );
+        return updatedPost;
+      }
     },
   },
 };
