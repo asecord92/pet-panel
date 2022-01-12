@@ -15,6 +15,7 @@ const typeDefs = gql`
     postText: String
     createdAt: String
     username: String
+    replyCount: Int
     replies: [Reply]
     tags: [String]
     categories: [String]
