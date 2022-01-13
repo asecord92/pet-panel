@@ -7,6 +7,7 @@ import {
 } from "@apollo/client";
 import Login from "./pages/Login";
 import { setContext } from "@apollo/client/link/context";
+import SignUp from "./pages/SignUp";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -27,7 +28,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 function App() {
-  return <ApolloProvider client={client}></ApolloProvider>;
+  return (
+    <ApolloProvider client={client}>
+      <SignUp />
+    </ApolloProvider>
+  );
 }
 
 export default App;
