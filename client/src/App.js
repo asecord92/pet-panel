@@ -14,6 +14,7 @@ import PostDetail from "./pages/PostDetail";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
+import AddPost from "./pages/AddPost";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:id" element={<PostDetail />} />
+        <Route path="/addpost" element={<AddPost />} />
         <Route path="/profile/" element={<Profile />}>
           <Route path=":username" element={<Profile />} />
         </Route>

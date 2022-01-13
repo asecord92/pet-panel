@@ -55,7 +55,7 @@ const PostForm = () => {
     }
   };
   return (
-    <Container sx={{ height: "400px", width: "80%", marginTop: "10px" }}>
+    <Container sx={{ height: "400px", width: "100%", marginTop: "10px" }}>
       <Box sx={{ height: "300px" }} component="form" onSubmit={handleSubmit}>
         <TextField
           size="large"
@@ -64,13 +64,13 @@ const PostForm = () => {
           value={formState.postText}
           fullWidth
           multiline
-          rows={3}
+          rows={4}
         />
         {/* <InputLabel id="demo-simple-select-standard=label">
         Select a Category
       </InputLabel> */}
-        <FormControl sx={{ width: "300px" }}>
-          {/* <Select
+
+        {/* <Select
           labelId="demo-simple-select-standard-label"
           id="demo-simple-select-standard"
           defaultValue=""
@@ -84,7 +84,7 @@ const PostForm = () => {
             </MenuItem>
           ))}
         </Select> */}
-          {/* <TextField
+        {/* <TextField
           select
           label="Select a Category"
           onChange={handleChange}
@@ -97,15 +97,15 @@ const PostForm = () => {
             </MenuItem>
           ))}
         </TextField> */}
+        <Box textAlign="right">
           <Button
             type="submit"
-            fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 3, mb: 2, width: "100px" }}
           >
             Post
           </Button>
-        </FormControl>
+        </Box>
       </Box>
     </Container>
   );

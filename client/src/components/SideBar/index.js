@@ -25,7 +25,7 @@ const SideBar = ({ posts }) => {
           <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
             Join the Conversation!
           </Typography>
-          <Button href="/createPost" variant="contained" sx={{ width: "50%" }}>
+          <Button href="/addpost" variant="contained" sx={{ width: "50%" }}>
             Add Post
           </Button>
         </Box>
