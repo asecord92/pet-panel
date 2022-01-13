@@ -12,7 +12,6 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Login from "./Login";
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -112,12 +111,7 @@ const SignUp = () => {
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>
-              <Link
-                style={{ cursor: "pointer" }}
-                onClick={() => window.location.assign("/login")}
-                to="/login"
-                variant="body2"
-              >
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

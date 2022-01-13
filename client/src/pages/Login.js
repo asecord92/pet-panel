@@ -6,14 +6,14 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import {
   TextField,
-  FormControlLabel,
-  Link,
   Grid,
   Box,
   Typography,
   Container,
+  Link,
 } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -96,11 +96,7 @@ const Login = (props) => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link
-                style={{ cursor: "pointer" }}
-                onClick={() => window.location.assign("/signup")}
-                variant="body2"
-              >
+              <Link href={"/signup"} variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
