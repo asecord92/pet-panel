@@ -4,7 +4,7 @@
   
   
   ## Description
-  Pet Panel is an forum discussion webpage. Users are able to create categories, submit their own posts to categories, and comment on the posts of other users. In the future, users will be able to use the Pet Finder API to search for animal shelters in their area.
+  Pet Panel is an forum discussion webpage. Users are able to submit their own posts to categories, and comment on the posts of other users. In the future, users will be able to use the Pet Finder API to search for animal shelters in their area.
 
 
   ## Table of Contents
