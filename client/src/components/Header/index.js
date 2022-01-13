@@ -80,14 +80,19 @@ const Header = () => {
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Link
                       href="/profile"
-                      sx={{ color: "white" }}
+                      sx={{ color: "black" }}
                       underline="none"
                     >
                       Profile
                     </Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Link href="/" onClicsx={{ color: "white" }} k={logout}>
+                    <Link
+                      href="/"
+                      underline="none"
+                      onClick={logout}
+                      sx={{ color: "black" }}
+                    >
                       Logout
                     </Link>
                   </MenuItem>

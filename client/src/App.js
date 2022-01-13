@@ -11,13 +11,13 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import PetDetail from "./pages/PetDetail";
 import PostDetail from "./pages/PostDetail";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import AddPost from "./pages/AddPost";
 
 const httpLink = createHttpLink({
-  uri: "graphql",
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -37,17 +37,19 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/post/:id" element={<PostDetail />} />
-        <Route path="/addpost" element={<AddPost />} />
-        <Route path="/profile/" element={<Profile />}>
-          <Route path=":username" element={<Profile />} />
-        </Route>
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/post/:id" element={<PostDetail />} />
+          <Route path="/addpost" element={<AddPost />} />
+          <Route path="/profile/" element={<Profile />}>
+            <Route path=":username" element={<Profile />} />
+          </Route>
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
