@@ -96,7 +96,11 @@ const Login = (props) => {
           </Button>
           <Grid container>
             <Grid item>
-              <Link style={{ cursor: "pointer" }} to="/login" variant="body2">
+              <Link
+                style={{ cursor: "pointer" }}
+                onClick={() => window.location.assign("/signup")}
+                variant="body2"
+              >
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
