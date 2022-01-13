@@ -13,6 +13,7 @@ import PetDetail from "./pages/PetDetail";
 import PostDetail from "./pages/PostDetail";
 import { Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
+import Header from "./components/Header";
 
 const httpLink = createHttpLink({
   uri: "graphql",
@@ -35,12 +36,15 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Header />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/post/:id" element={<PostDetail />} />
-        <Route exact path="/profile/:username?" element={<Profile />} />
-        <Route exact path="/signup" element={<SignUp />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/post/:id" element={<PostDetail />} />
+        <Route path="/profile/" element={<Profile />}>
+          <Route path=":username" element={<Profile />} />
+        </Route>
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </ApolloProvider>
   );
