@@ -49,7 +49,6 @@ const PostList = ({ posts }) => {
                   href={`/post/${post._id}`}
                 >
                   {" "}
-                  {console.log(post.replyCount)}
                   {posts.replyCount}
                 </Link>
               </Typography>
