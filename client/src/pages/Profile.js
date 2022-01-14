@@ -43,13 +43,15 @@ const Profile = () => {
   return (
     <>
       <CssBaseline />
+      <Box
+        textAlign="center"
+        sx={{ width: "35%", justifyContent: "flex-start" }}
+      >
+        <Typography variant="h5">{user.username}'s Posts:</Typography>
+      </Box>
       <Container maxWidth="lg" sx={{ display: "flex" }}>
         <Grid container spacing={5} sx={{ mt: 3 }}>
-          <Typography variant="h6" sx={{ ml: 6 }}>
-            Viewing {user.username}'s most recent Posts:
-          </Typography>
           <PostList posts={user.posts} />
-
           <SideBar />
         </Grid>
       </Container>
