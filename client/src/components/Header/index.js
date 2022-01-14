@@ -114,7 +114,7 @@ const Header = () => {
                       sx={{ color: "black" }}
                       underline="none"
                     >
-                      Signup
+                      Sign Up
                     </Link>
                   </MenuItem>
                 </>
@@ -162,7 +162,7 @@ const Header = () => {
                 </MenuItem>
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Link href="/signup" sx={{ color: "white" }} underline="none">
-                    Signup
+                    Sign Up
                   </Link>
                 </MenuItem>
               </>

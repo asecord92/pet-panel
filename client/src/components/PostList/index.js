@@ -10,6 +10,9 @@ const PostList = ({ posts }) => {
   }
   return (
     <Grid item xs={12} md={8}>
+      <Typography variant="h6" sx={{ ml: 1 }}>
+        Most Recent:
+      </Typography>
       {posts &&
         posts.map((post) => (
           <Card sx={{ maxWidth: "90%", mb: "20px" }} key={post._id}>

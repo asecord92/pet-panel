@@ -45,6 +45,9 @@ const Profile = () => {
       <CssBaseline />
       <Container maxWidth="lg" sx={{ display: "flex" }}>
         <Grid container spacing={5} sx={{ mt: 3 }}>
+          <Typography variant="h6" sx={{ ml: 6 }}>
+            Viewing {user.username}'s most recent Posts:
+          </Typography>
           <PostList posts={user.posts} />
 
           <SideBar />
