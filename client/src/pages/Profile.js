@@ -6,23 +6,26 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import { Typography } from "@mui/material";
+import { Typography, Grid, CssBaseline } from "@mui/material";
 import { Link } from "@mui/material";
+import SideBar from "../components/SideBar";
+import PostList from "../components/PostList";
 
 const Profile = () => {
   const { username: userParam } = useParams();
-  const { loading, data } = useQuery(QUERY_USER, {
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
-  console.log(data);
-  const user = data?.user || {};
+
+  const user = data?.me || data?.user || {};
+  console.log(user.posts);
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/profile" />;
   }
   if (loading) {
     return <div> Loading...</div>;
   }
-  if (user?.username) {
+  if (!user?.username) {
     return (
       <Box textAlign="center">
         <Paper elevation={2} sx={{ bgcolor: "grey" }}>
@@ -38,9 +41,16 @@ const Profile = () => {
   }
 
   return (
-    <Container>
-      <h3>This is Profile</h3>
-    </Container>
+    <>
+      <CssBaseline />
+      <Container maxWidth="lg" sx={{ display: "flex" }}>
+        <Grid container spacing={5} sx={{ mt: 3 }}>
+          <PostList posts={user.posts} />
+
+          <SideBar />
+        </Grid>
+      </Container>
+    </>
   );
 };
 

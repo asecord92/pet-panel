@@ -10,10 +10,7 @@ const PostTitle = ({ postTitle }) => {
     return (
       <Paper elevation={0} sx={{ mt: "10px", alignItems: "center" }}>
         {postTitle.map((post) => (
-          <Card
-            sx={{ maxWidth: "90%", ml: 1, mr: -1, mb: "20px" }}
-            key={post._id}
-          >
+          <Card sx={{ maxWidth: "100%", mr: -1, mb: "20px" }} key={post._id}>
             <CardContent>
               <Typography variant="p">
                 <Link
