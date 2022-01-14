@@ -6,23 +6,26 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
+
 const ReplyForm = ({ postId }) => {
-  const [replyText, setBody] = useState("");
+  const [replyText, setText] = useState("");
   const [addReply, { error }] = useMutation(ADD_REPLY);
 
   const handleChange = (event) => {
     if (event.target.value) {
-      setBody(event.target.value);
+      setText(event.target.value);
     }
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault(`/post/${postId}`);
 
     try {
       await addReply({
         variables: { replyText, postId },
       });
+      setText("");
+      window.location.replace();
     } catch (e) {
       console.log(error);
     }
