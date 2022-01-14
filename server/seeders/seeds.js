@@ -37,7 +37,7 @@ db.once("open", async () => {
 
   // create posts
   let createdPosts = [];
-  for (let i = 0; i < 100; i += 1) {
+  for (let i = 0; i < 50; i += 1) {
     const postText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.length);

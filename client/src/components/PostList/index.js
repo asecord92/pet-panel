@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import { Card, CardContent } from "@mui/material";
 import Grid from "@mui/material/Grid";
+
 const PostList = ({ posts }) => {
   if (!posts.length) {
     return <Typography variant="h4">No Posts to yet!</Typography>;

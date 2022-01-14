@@ -30,8 +30,13 @@ const PostDetail = () => {
         textAlign="left"
         sx={{ display: "flex", justifyContent: "space-between", mt: "20px" }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Card sx={{ maxWidth: "100%", mb: "20px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <Card sx={{ maxWidth: "100%", mb: "20px", mr: 5 }}>
             <CardContent>
               <Typography variant="p">
                 <Link

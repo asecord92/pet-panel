@@ -44,7 +44,11 @@ const SignUp = () => {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container
+      component="main"
+      maxWidth="xs"
+      sx={{ bgcolor: "white", borderRadius: "rounded 3px", pb: 10 }}
+    >
       <CssBaseline />
       <Box
         sx={{

@@ -46,7 +46,7 @@ const Login = (props) => {
     });
   };
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" sx={{ bgcolor: "white" }}>
       <Box
         sx={{
           marginTop: 8,

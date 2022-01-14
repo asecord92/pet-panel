@@ -19,11 +19,16 @@ const Home = () => {
         textAlign="center"
         sx={{ width: "35%", justifyContent: "flex-start" }}
       >
-        <Typography variant="h5">Most Recent:</Typography>
+        <Typography variant="h5" sx={{ color: "white" }}>
+          Most Recent:
+        </Typography>
       </Box>
       <Container
         maxWidth="lg"
-        sx={{ display: "flex", justifyContent: "space-between" }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
       >
         <Grid container spacing={5} sx={{ mt: 3 }}>
           <PostList posts={posts} />

@@ -7,7 +7,6 @@ import {
   Box,
   IconButton,
   Menu,
-  Button,
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -30,7 +29,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar style={{ backgroundColor: "#463F3A" }} position="static">
+    <AppBar style={{ backgroundColor: "steelblue" }} position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
