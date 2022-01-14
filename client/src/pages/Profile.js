@@ -16,13 +16,13 @@ const Profile = () => {
   });
   console.log(data);
   const user = data?.user || {};
-  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-  //   return <Navigate to="/profile" />;
-  // }
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/profile" />;
+  }
   if (loading) {
     return <div> Loading...</div>;
   }
-  if (!user?.username) {
+  if (user?.username) {
     return (
       <Box textAlign="center">
         <Paper elevation={2} sx={{ bgcolor: "grey" }}>

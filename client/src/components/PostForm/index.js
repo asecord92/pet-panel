@@ -46,6 +46,7 @@ const PostForm = () => {
         variables: { postText },
       });
       setText("");
+      window.location.replace("/");
     } catch (e) {
       console.log(e);
     }

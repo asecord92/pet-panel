@@ -33,6 +33,7 @@ const SideBar = () => {
           </Button>
         </Box>
       </Paper>
+
       {loggedIn && postTitle ? <PostTitle postTitle={postTitle.posts} /> : null}
     </Grid>
   );
