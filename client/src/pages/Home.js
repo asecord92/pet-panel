@@ -9,7 +9,7 @@ import { useQuery } from "@apollo/client";
 import PostList from "../components/PostList";
 const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
-  const { data: userData } = useQuery(QUERY_ME);
+
   const posts = data?.posts || [];
 
   return (
@@ -17,7 +17,7 @@ const Home = () => {
       <CssBaseline />
       <Container maxWidth="lg" sx={{ display: "flex" }}>
         <Grid container spacing={5} sx={{ mt: 3 }}>
-          <PostList posts={posts} myposts={userData} />
+          <PostList posts={posts} />
 
           <SideBar />
         </Grid>

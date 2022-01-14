@@ -13,43 +13,39 @@ import { catArray } from "../../utils/data";
 import { Container } from "@mui/material";
 
 const PostForm = () => {
-  const [formState, setForm] = useState({
-    postText: "",
-    categories: [""],
-    tags: [],
-  });
-  const [addPost, { error }] = useMutation(ADD_POST, {
-    update(cache, { data: { addPost } }) {
-      try {
-        const { posts } = cache.readQuery({ query: QUERY_POSTS });
-        cache.writeQuery({
-          query: QUERY_POSTS,
-          data: { posts: [addPost, ...posts] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, posts: { ...me.posts, addPost } } },
-      });
-    },
-  });
+  const [postText, setText] = useState("");
+  const [addPost, { error }] = useMutation(ADD_POST);
+  //   {
+  //   update(cache, { data: { addPost } }) {
+  //     try {
+  //       const { posts } = cache.readQuery({ query: QUERY_POSTS });
+  //       cache.writeQuery({
+  //         query: QUERY_POSTS,
+  //         data: { posts: [addPost, ...posts] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, posts: { ...me.posts, addPost } } },
+  //     });
+  //   },
+  // });
 
   const handleChange = (event) => {
-    setForm(event.target.value);
+    setText(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(event);
 
     try {
       await addPost({
-        variables: { ...formState },
+        variables: { postText },
       });
-      setForm("");
+      setText("");
     } catch (e) {
       console.log(e);
     }
@@ -61,7 +57,7 @@ const PostForm = () => {
           size="large"
           placeholder="Enter Post Here"
           onChange={handleChange}
-          value={formState.postText}
+          value={postText}
           fullWidth
           multiline
           rows={4}

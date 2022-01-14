@@ -8,10 +8,13 @@ import Box from "@mui/material/Box";
 import Auth from "../../utils/auth";
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
+import PostTitle from "../PostTitle";
 
-const SideBar = ({ posts }) => {
+const SideBar = () => {
   const loggedIn = Auth.loggedIn();
-  const { data: userData } = useQuery(QUERY_ME);
+  const { data } = useQuery(QUERY_ME);
+  const postTitle = data?.me || {};
+  console.log(postTitle);
   return (
     <Grid item xs={12} md={4}>
       <Paper
@@ -30,11 +33,7 @@ const SideBar = ({ posts }) => {
           </Button>
         </Box>
       </Paper>
-      {loggedIn && userData ? (
-        <Paper sx={{ mt: "10px" }} variant="outlined">
-          This is where the thoughs go
-        </Paper>
-      ) : null}
+      {loggedIn && postTitle ? <PostTitle postTitle={postTitle.posts} /> : null}
     </Grid>
   );
 };

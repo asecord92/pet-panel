@@ -10,15 +10,16 @@ import {
   Link,
   Card,
   CardContent,
+  Divider,
 } from "@mui/material";
 import SideBar from "../components/SideBar";
 const PostDetail = () => {
   const { id: postId } = useParams();
-  console.log(typeof postId);
+
   const { loading, error, data } = useQuery(QUERY_POST, {
     variables: { id: postId },
   });
-  console.log(error);
+
   const post = data?.post || {};
   return (
     <Container maxWidth="lg">
@@ -71,7 +72,6 @@ const PostDetail = () => {
         </Card>
         <SideBar />
       </Box>
-      <Box>Replies here</Box>
     </Container>
   );
 };
