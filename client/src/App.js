@@ -15,6 +15,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Header from "./components/Header";
 import AddPost from "./pages/AddPost";
+import Jumbotron from "./components/Jumbotron";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,6 +40,7 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Header />
+        <Jumbotron />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />

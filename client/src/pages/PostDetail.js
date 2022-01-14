@@ -31,7 +31,7 @@ const PostDetail = () => {
         sx={{ display: "flex", justifyContent: "space-between", mt: "20px" }}
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Card sx={{ maxWidth: "60%", mb: "20px" }}>
+          <Card sx={{ maxWidth: "100%", mb: "20px" }}>
             <CardContent>
               <Typography variant="p">
                 <Link
